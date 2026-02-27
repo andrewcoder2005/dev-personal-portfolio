@@ -1,11 +1,7 @@
 import React from 'react'
 
-function Hero() {
+export default function Hero() {
   return (
-    <section>
-        
-    </section>
+    <section></section>
   )
 }
-
-export default Hero
