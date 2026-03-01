@@ -10,7 +10,7 @@ const navLinks = [
 function Navbar() {
   const [isMobileOpen, setisMobileOpen] = useState(false);
   return (
-    <header className="fixed top-0 left-0 right-0 bg-transparent py-5">
+    <header className="fixed top-0 left-0 right-0 bg-transparent py-5 z-50">
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a href='#' className='text-xl font-bold tracking-tight hover:text-primary'>
           AP<span className='text-primary'>.</span>
@@ -30,14 +30,14 @@ function Navbar() {
           </Button>
         </div>
         {/* Mobile Menu Button */}
-        <button className='md:hidden p-2 text-foreground' onClick={()=>setisMobileOpen((prev)=>!prev)}>
+        <button className='md:hidden p-2 text-foreground cursor-pointer'onClick={()=>setisMobileOpen((prev)=>!prev)}>
           {isMobileOpen?<X/>:<Menu/>}
         </button>
         {/* Mobile Menu */}
       </nav>
       {
         isMobileOpen&&
-      <div className={`md:hidden glass-strong`}>
+      <div className={`md:hidden glass-strong animate-fade-in`}>
         <div className=" container mx-auto flex flex-col glass py-6 px-6 gap-4">
           {navLinks.map((link, index) => (
             <a href={link.href} key={index} className="text-lg text-muted-foreground hover:text-foreground hover: bg-surface py-2 ">
