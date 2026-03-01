@@ -1,9 +1,9 @@
-import About from "./components/About"
-import Contact from "./components/Contact"
-import Experience from "./components/Experience"
-import Hero from "./components/Hero"
-import Projects from "./components/Projects"
-import Testimonials from "./components/Testimonials"
+import About from "./sections/About"
+import Contact from "./sections/Contact"
+import Experience from "./sections/Experience"
+import Hero from "./sections/Hero"
+import Projects from "./sections/Projects"
+import Testimonials from "./sections/Testimonials"
 import Navbar from "./layout/Navbar"
 
 function App(){
