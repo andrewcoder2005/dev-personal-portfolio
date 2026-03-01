@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Button from '../components/Button'
-import { Menu } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
@@ -8,7 +8,7 @@ const navLinks = [
   { href: "#testimonials", label: "Testimonials" }
 ]
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMobileOpen, setisMobileOpen] = useState(false);
   return (
     <header className="fixed top-0 left-0 right-0 bg-transparent py-5">
       <nav className="container mx-auto px-6 flex items-center justify-between">
@@ -30,12 +30,14 @@ function Navbar() {
           </Button>
         </div>
         {/* Mobile Menu Button */}
-        <button className='md:hidden p-2 text-foreground' onClick={()=>setIsOpen(!isOpen)}>
-          <Menu />
+        <button className='md:hidden p-2 text-foreground' onClick={()=>setisMobileOpen((prev)=>!prev)}>
+          {isMobileOpen?<X/>:<Menu/>}
         </button>
         {/* Mobile Menu */}
       </nav>
-      <div className={`${isOpen?`block`:`hidden`} md:hidden glass-strong`}>
+      {
+        isMobileOpen&&
+      <div className={`md:hidden glass-strong`}>
         <div className=" container mx-auto flex flex-col glass py-6 px-6 gap-4">
           {navLinks.map((link, index) => (
             <a href={link.href} key={index} className="text-lg text-muted-foreground hover:text-foreground hover: bg-surface py-2 ">
@@ -46,6 +48,7 @@ function Navbar() {
         </Button>
         </div>
       </div>
+      }
 
     </header>
   )
