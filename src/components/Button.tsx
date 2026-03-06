@@ -1,4 +1,4 @@
-import React, { type ButtonHTMLAttributes, type ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ReactNode } from 'react'
 type ButtonProps = {
     size?:'sm' | 'default' | 'lg',
     children: ReactNode
