@@ -76,18 +76,20 @@ export const Hero = () => {
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Crafting <span className="text-primary glow-text">digital</span>
+                I turn ideas into{" "}
+                <span className="text-primary glow-text">scalable products</span>
                 <br />
-                experiences with
+                that teams trust
                 <br />
-                <span className="font-serif italic font-normal text-white">
-                  precision.
+                <span className="font-serif italic font-normal text-white/95">
+                  and users love.
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Pedro Machado — a software engineer specializing in
-                React, Next.js, and TypeScript. I build scalable, performant web
-                applications that users love.
+                Hi, I'm Pedro Machado — a software engineer who ships. I
+                specialize in React, Next.js, TypeScript, and Java to build
+                fast, maintainable web apps that look great and perform even
+                better.
               </p>
             </div>
 
