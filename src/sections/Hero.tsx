@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import { type MouseEvent } from "react";
 import {
   ArrowRight,
   ChevronDown,
@@ -31,6 +32,12 @@ const skills = [
 ];
 
 export const Hero = () => {
+  const handleContactClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const section = document.querySelector("#contact");
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
@@ -95,11 +102,9 @@ export const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <a href="#contact">
-                <Button size="lg">
-                  Contact Me <ArrowRight className="w-5 h-5" />
-                </Button>
-              </a>
+              <Button size="lg" onClick={handleContactClick}>
+                Contact Me <ArrowRight className="w-5 h-5" />
+              </Button>
               <AnimatedBorderButton >
                 <Download className="w-5 h-5" />
                 Download CV
