@@ -35,6 +35,11 @@ type EmailJSError = {
   status?: number;
 };
 
+const cleanEnv = (value: string | undefined): string => {
+  if (!value) return "";
+  return value.trim().replace(/;$/, "");
+};
+
 const contactInfo: ContactInfoItem[] = [
   {
     icon: Mail,
@@ -74,15 +79,15 @@ function Contact() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as
-        | string
-        | undefined;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as
-        | string
-        | undefined;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as
-        | string
-        | undefined;
+      const serviceId = cleanEnv(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined
+      );
+      const templateId = cleanEnv(
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined
+      );
+      const publicKey = cleanEnv(
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined
+      );
 
       if (!serviceId || !templateId || !publicKey) {
         throw new Error(
