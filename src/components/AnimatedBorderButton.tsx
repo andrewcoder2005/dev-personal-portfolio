@@ -1,20 +1,27 @@
-import { type ReactNode } from "react";
-import { Download } from "lucide-react";
+import { type ButtonHTMLAttributes, type ReactNode } from "react";
 
 type AnimatedBorderButtonProps = {
   children: ReactNode;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const AnimatedBorderButton = ({ children }: AnimatedBorderButtonProps) => {
-  return (
-    <button
-      className="relative bg-transparent border border-border 
+export const AnimatedBorderButton = ({
+  children,
+  className = "",
+  ...props
+}: AnimatedBorderButtonProps) => {
+  const classes = `relative bg-transparent border border-border 
         text-foreground hover:border-primary/50 transition-all 
         duration-1000 focus:outline-none focus-visible:ring-2 
         focus-visible:ring-primary focus-visible:ring-offset-2 
         disabled:opacity-50 disabled:cursor-not-allowed group 
         px-8 py-4 text-lg font-medium rounded-full overflow-visible 
-        animated-border"
+        animated-border ${className}`.trim();
+
+  return (
+    <button
+      type="button"
+      className={classes}
+      {...props}
     >
       <svg
         className="absolute left-0 top-0 w-full h-full pointer-events-none download-cv-border"
