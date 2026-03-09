@@ -1,27 +1,31 @@
 type Testimonial = {
-  title: string;
-  description: string;
-  source: string;
+  quote: string;
+  author: string;
+  role: string;
+  avatar: string;
 };
 
 const testimonials: Testimonial[] = [
   {
-    title: "Reliable delivery",
-    description:
-      "Known for consistently completing tasks on time and taking ownership from implementation through refinement.",
-    source: "Mentor feedback",
+    quote:
+      "Andrew attended our weekly meetings well prepared, presented progress clearly, and consistently incorporated feedback into practical improvements.",
+    author: "Deanna Jarvis",
+    role: "Placement Supervisor, Morwell Innovation Centre",
+    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Deanna%20Jarvis",
   },
   {
-    title: "Strong communication",
-    description:
-      "Praised for asking the right questions early and collaborating well with design and product teammates.",
-    source: "Project collaboration feedback",
+    quote:
+      "He showed strong initiative by proposing additional features, explaining trade-offs, and working effectively with our external website administrator.",
+    author: "Lisa Maatsoo",
+    role: "Placement Supervisor, Morwell Innovation Centre",
+    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Lisa%20Maatsoo",
   },
   {
-    title: "High learning velocity",
-    description:
-      "Recognized for quickly learning new tools and applying feedback to improve both code quality and product outcomes.",
-    source: "Placement and university project feedback",
+    quote:
+      "Andrew approached backend work with a problem-solving mindset, delivered reliable API/data improvements, and documented handover details thoroughly.",
+    author: "Edward Ivanovic",
+    role: "CTO, PTCARES Physiotherapy & Wellness",
+    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Edward%20Ivanovic",
   },
 ];
 
@@ -45,17 +49,26 @@ function Testimonials() {
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {testimonials.map((item) => (
             <article
-              key={item.title}
+              key={item.author}
               className="glass rounded-2xl border border-border p-6 flex flex-col gap-4"
             >
               <div className="text-primary text-2xl leading-none">&ldquo;</div>
-              <h3 className="text-lg font-semibold">{item.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                {item.description}
+                {item.quote}
               </p>
-              <p className="text-xs uppercase tracking-wider text-primary/80 mt-auto">
-                {item.source}
-              </p>
+              <div className="mt-auto flex items-center gap-3 pt-2">
+                <img
+                  src={item.avatar}
+                  alt={item.author}
+                  className="w-10 h-10 rounded-full border border-border bg-surface"
+                />
+                <div>
+                  <p className="text-sm font-semibold">{item.author}</p>
+                  <p className="text-xs text-primary/80 uppercase tracking-wider">
+                    {item.role}
+                  </p>
+                </div>
+              </div>
             </article>
           ))}
         </div>
