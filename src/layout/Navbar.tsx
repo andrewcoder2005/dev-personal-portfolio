@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Button from '../components/Button'
 import { Menu, X } from 'lucide-react'
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
-  { href: "#testimonials", label: "Testimonials" }
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#contact", label: "Contact" }
 ]
 function Navbar() {
   const [isMobileOpen, setisMobileOpen] = useState(false);
@@ -25,9 +26,11 @@ function Navbar() {
         </div>
         {/* CTA button */}
         <div className='hidden md:block'>
-          <Button size='sm'>
-            Contact me
-          </Button>
+          <a href="#contact">
+            <Button size='sm'>
+              Contact me
+            </Button>
+          </a>
         </div>
         {/* Mobile Menu Button */}
         <button className='md:hidden p-2 text-foreground cursor-pointer'onClick={()=>setisMobileOpen((prev)=>!prev)}>
@@ -40,12 +43,14 @@ function Navbar() {
       <div className={`md:hidden glass-strong animate-fade-in`}>
         <div className=" container mx-auto flex flex-col glass py-6 px-6 gap-4">
           {navLinks.map((link, index) => (
-            <a href={link.href} key={index} className="text-lg text-muted-foreground hover:text-foreground hover: bg-surface py-2 ">
+            <a href={link.href} key={index} onClick={() => setisMobileOpen(false)} className="text-lg text-muted-foreground hover:text-foreground hover: bg-surface py-2 ">
               {link.label}  </a>
           ))}
-        <Button>
-          Contact me
-        </Button>
+        <a href="#contact" onClick={() => setisMobileOpen(false)}>
+          <Button>
+            Contact me
+          </Button>
+        </a>
         </div>
       </div>
       }
