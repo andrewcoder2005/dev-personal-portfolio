@@ -7,27 +7,26 @@ import {
   Twitter,
   Download,
 } from "lucide-react";
-import {AnimatedBorderButton} from "../components/AnimatedBorderButton";
+import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 
 const skills = [
   "React",
+  "React Native",
   "Next.js",
   "TypeScript",
   "Node.js",
-  "GraphQL",
+  "Java",
+  "Spring Boot",
   "PostgreSQL",
   "MongoDB",
-  "Redis",
-  "Docker",
   "AWS",
   "Vercel",
   "Tailwind CSS",
-  "Prisma",
-  "Jest",
   "Cypress",
   "Figma",
   "Git",
   "GitHub Actions",
+  "CI/CD"
 ];
 
 export const Hero = () => {
@@ -52,9 +51,8 @@ export const Hero = () => {
               backgroundColor: "#20B2A6",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${
-                15 + Math.random() * 20
-              }s ease-in-out infinite`,
+              animation: `slow-drift ${15 + Math.random() * 20
+                }s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`,
             }}
           />
@@ -67,27 +65,23 @@ export const Hero = () => {
           {/* Left Column - Text Content */}
           <div className="space-y-8">
             <div className="animate-fade-in">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary border border-primary/20">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Software Engineer • React Specialist
+                React • TypeScript • Next.js • Java
               </span>
             </div>
 
             {/* Headline */}
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Crafting <span className="text-primary glow-text">digital</span>
-                <br />
-                experiences with
-                <br />
-                <span className="font-serif italic font-normal text-white">
-                  precision.
-                </span>
+            <div className="space-y-5">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] animate-fade-in animation-delay-100">
+              Building{" "}
+                <span className="text-primary glow-text">scalable web and mobile applications</span>
+                <br className="hidden sm:block" />
+                 and{" "}
+                <span className="font-serif italic font-normal text-white/95"> using modern technologies.</span>
               </h1>
-              <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Pedro Machado — a software engineer specializing in
-                React, Next.js, and TypeScript. I build scalable, performant web
-                applications that users love.
+              <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed animate-fade-in animation-delay-200">
+                Hi, I'm Andrew — a software engineer who ships. I specialize in React, Next.js, and TypeScript, Java to build fast, maintainable web apps that look great and perform even better.
               </p>
             </div>
 
@@ -120,7 +114,7 @@ export const Hero = () => {
             </div>
           </div>
           {/* Right Column - Profile Image */}
-          <div className="relatice animate-fade-in animation-delay-300">
+          <div className="relative animate-fade-in animation-delay-300">
             {/* Profile Image */}
             <div className="relative max-w-md mx-auto">
               <div
@@ -132,7 +126,7 @@ export const Hero = () => {
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
                   src="/headshot.png"
-                  alt="Pedro Machado"
+                  alt="Andrew"
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
 
@@ -147,7 +141,7 @@ export const Hero = () => {
                 </div>
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                  <div className="text-2xl font-bold text-primary">5+</div>
+                  <div className="text-2xl font-bold text-primary">2+</div>
                   <div className="text-xs text-muted-foreground">
                     Years Exp.
                   </div>
@@ -159,25 +153,11 @@ export const Hero = () => {
 
         {/* Skills Section */}
         <div className="mt-20 animate-fade-in animation-delay-600">
-          <p className="text-sm text-muted-foreground mb-6 text-center">
-            Technologies I work with
-          </p>
+          <p className="text-md text-muted-foreground mb-6 text-center">Technologies I work with</p>
           <div className="relative overflow-hidden">
-            <div
-              className="absolute left-0 top-0 bottom-0 w-32
-             bg-gradient-to-r from-background to-transparent z-10"
-            />
-            <div
-              className="absolute right-0 top-0 bottom-0 w-32
-             bg-gradient-to-l from-background to-transparent z-10"
-            />
             <div className="flex animate-marquee">
-              {[...skills, ...skills].map((skill, idx) => (
-                <div key={idx} className="flex-shrink-0 px-8 py-4">
-                  <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
-                    {skill}
-                  </span>
-                </div>
+              {[...skills, ...skills].map((skill, index) => (
+                <div className="shrink-0 px-8 py-4" key={index}><span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground">{skill}</span></div>
               ))}
             </div>
           </div>

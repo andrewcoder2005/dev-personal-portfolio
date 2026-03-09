@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '../components/Button'
 import { Menu, X } from 'lucide-react'
 const navLinks = [
@@ -9,8 +9,19 @@ const navLinks = [
 ]
 function Navbar() {
   const [isMobileOpen, setisMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+
+  }, [])
   return (
-    <header className="fixed top-0 left-0 right-0 bg-transparent py-5 z-50">
+    <header className={`fixed top-0 left-0 right-0 ${isScrolled ? "glass effect py-3" : "bg-transparent py-5"} z-50 transition-all duration-500`}>
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a href='#' className='text-xl font-bold tracking-tight hover:text-primary'>
           AP<span className='text-primary'>.</span>
@@ -30,24 +41,29 @@ function Navbar() {
           </Button>
         </div>
         {/* Mobile Menu Button */}
-        <button className='md:hidden p-2 text-foreground cursor-pointer'onClick={()=>setisMobileOpen((prev)=>!prev)}>
-          {isMobileOpen?<X/>:<Menu/>}
+        <button className='md:hidden p-2 text-foreground cursor-pointer' onClick={() => setisMobileOpen((prev) => !prev)}>
+          {isMobileOpen ? <X /> : <Menu />}
         </button>
         {/* Mobile Menu */}
       </nav>
       {
-        isMobileOpen&&
-      <div className={`md:hidden glass-strong animate-fade-in`}>
-        <div className=" container mx-auto flex flex-col glass py-6 px-6 gap-4">
-          {navLinks.map((link, index) => (
-            <a href={link.href} key={index} className="text-lg text-muted-foreground hover:text-foreground hover: bg-surface py-2 ">
-              {link.label}  </a>
-          ))}
-        <Button>
-          Contact me
-        </Button>
+        isMobileOpen &&
+        <div className={`md:hidden glass-strong animate-fade-in`}>
+          <div className=" container mx-auto flex flex-col glass py-6 px-6 gap-4">
+            {navLinks.map((link, index) => (
+              <a 
+              href={link.href} 
+              key={index} 
+              className="text-lg text-muted-foreground hover:text-foreground hover: bg-surface py-2 "
+              onClick={()=>setisMobileOpen(false)}
+              >
+                {link.label}  </a>
+            ))}
+            <Button onClick={()=>setisMobileOpen(false)}>
+              Contact me
+            </Button>
+          </div>
         </div>
-      </div>
       }
 
     </header>
