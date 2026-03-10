@@ -1,5 +1,4 @@
-import {type ButtonHTMLAttributes, type ReactNode } from "react";
-import { Download } from "lucide-react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type AnimatedBorderButtonProps = {
   children: ReactNode;

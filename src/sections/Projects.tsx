@@ -18,14 +18,14 @@ const projects: Project[] = [
     video: "/videos/mic-phone.mp4",
     poster: "/hero-bg.jpg",
     tags: ["React Native", "WordPress API", "Amelia API", "Mobile"],
-    link: "#",
+    link: "",
     github: "",
   },
   {
     title: "AI Study Career Copilot",
     description:
       "Full-stack app that helps students plan goals, track study progress, and get AI-powered feedback.",
-    video: null,
+    video: "null",
     poster: "/hero-bg.jpg",
     tags: ["React", "Next.js", "TypeScript", "Node.js", "AI"],
     link: "#",
@@ -45,29 +45,19 @@ const projects: Project[] = [
     title: "Early Childhood Education App",
     description:
       "Interactive education app designed to support early learning with simple and engaging user flows.",
-    video: null,
-    poster: "/hero-bg.jpg",
+    video: "/videos/childhood_app.mp4",
+    poster: "/early-childhood.png",
     tags: ["React", "Education", "Frontend", "UX"],
-    link: "#",
+    link: "https://project-repo-childhoodapp-uuxl.onrender.com/signup",
     github: "https://github.com/andrewcoder2005/early_childhood_education_app",
-  },
-  {
-    title: "Cheese Grater Chat",
-    description:
-      "Real-time chat application with responsive messaging experience and clean, scalable frontend design.",
-    video: null,
-    poster: "/hero-bg.jpg",
-    tags: ["React", "Node.js", "WebSockets", "Realtime"],
-    link: "#",
-    github: "https://github.com/andrewcoder2005/cheese-grater-chat",
   },
   {
     title: "E-Commerce App",
     description:
       "Full-stack e-commerce app with product browsing, cart, and checkout-focused user journeys.",
-    video: null,
-    poster: "/hero-bg.jpg",
-    tags: ["React", "Node.js", "MongoDB", "E-commerce"],
+    video: "/videos/ecommerce.mp4",
+    poster: "/ecommerce.png",
+    tags: ["JavaScript", "HTML", "CSS", "E-commerce"],
     link: "#",
     github: "https://github.com/andrewcoder2005/e-commerce-app",
   },
@@ -198,11 +188,6 @@ function Projects() {
                   </div>
 
                   <div className="flex gap-4 pt-1 mt-auto">
-                    <a
-                      href={project.link}
-                      className="text-primary text-sm hover:underline"
-                    >
-                    </a>
                     {project.github ? (
                       <a
                         href={project.github}

@@ -4,7 +4,6 @@ import {
   ChevronDown,
   Github,
   Linkedin,
-  Twitter,
   Download,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
@@ -52,7 +51,7 @@ export const Hero = () => {
 
       {/* Green Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(30)].map((_) => (
           <div
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
@@ -88,7 +87,7 @@ export const Hero = () => {
                  and{" "}
                 <span className="font-serif italic font-normal text-white/95"> using modern technologies.</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed animate-fade-in animation-delay-200">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed animation-delay-200">
                 Hi, I'm Andrew — a software engineer who ships. I specialize in React, Next.js, and TypeScript, Java to build fast, maintainable web apps that look great and perform even better.
               </p>
             </div>

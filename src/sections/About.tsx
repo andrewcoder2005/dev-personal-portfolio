@@ -1,5 +1,4 @@
-import { Code2,GraduationCap,Users,Layers,ArrowUpRight} from 'lucide-react';
-import React from 'react'
+import { Code2,GraduationCap,Users,Layers} from 'lucide-react';
 const highlights = [
   {
     icon: GraduationCap,
