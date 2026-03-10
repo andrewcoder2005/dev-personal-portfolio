@@ -30,6 +30,14 @@ const skills = [
 ];
 
 export const Hero = () => {
+  const handleDownloadCV = ()=>{
+    const link = document.createElement("a");
+    link.href="../full-stack-developer.pdf";
+    link.download = "../full-stack-developer.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
@@ -87,10 +95,10 @@ export const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
+              <Button id="contact" size="lg">
                 Contact Me <ArrowRight className="w-5 h-5" />
               </Button>
-              <AnimatedBorderButton >
+              <AnimatedBorderButton onClick = {handleDownloadCV}>
                 <Download className="w-5 h-5" />
                 Download CV
               </AnimatedBorderButton>

@@ -4,12 +4,12 @@ const projects = [
     title: "MIC Booking Mobile App (Placement Project)",
     description:
       "React Native booking app integrated with WordPress, Ultimate Member auth, and Amelia for real-time bookings.",
-    video: "/", // replace after demo recording
+    video: "/video/mic-phone.mp4", // replace after demo recording
     tags: ["React Native", "WordPress API", "Amelia API", "Mobile"],
     link: "#",
     github: "",
   },
-    {
+  {
     title: "AI Study Career Copilot",
     description:
       "Full-stack app that helps students plan goals, track study progress, and get AI-powered feedback.",
@@ -26,15 +26,6 @@ const projects = [
     tags: ["Python", "ETL", "SQL", "Data Processing"],
     link: "#",
     github: "https://github.com/andrewcoder2005/university-etl",
-  },
-  {
-    title: "Developer Personal Portfolio",
-    description:
-      "Modern portfolio site to showcase my projects, skills, and experience with clean UI and performance focus.",
-    video: "/",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    link: "#",
-    github: "https://github.com/andrewcoder2005/dev-personal-portfolio",
   },
   {
     title: "Early Childhood Education App",
@@ -67,9 +58,79 @@ const projects = [
 ];
 function Projects() {
   return (
-    <section  id="projects" className=" py-32 relative overflow-hidden">
-      {/* Background glows */}
-        <div className="container mx-auto px-6 relative z-10"></div>
+    <section id="projects" className="py-24 px-6">
+      <div className="container mx-auto">
+        <div className="max-w-2xl mb-12">
+          <p className="text-sm uppercase tracking-widest text-primary mb-3">Projects</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Work</h2>
+          <p className="text-muted-foreground">
+            Projects I’ve built across web, mobile, AI, and data.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <article
+              key={project.title}
+              className="group glass rounded-2xl border border-border overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              {/* Preview area */}
+              <div className="aspect-video bg-gradient-to-br from-primary/20 to-background/60 flex items-center justify-center">
+                {project.video !== "/" ? (
+                  <video
+                    src={project.video}
+                    className="w-full h-full object-cover"
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                  />
+                ) : (
+                  <span className="text-sm text-muted-foreground">Demo coming soon</span>
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="p-5 flex flex-col gap-4">
+                <div>
+                  <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={`${project.title}-${tag}`}
+                      className="px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-4 pt-1 mt-auto">
+                  <a href={project.link} className="text-primary text-sm hover:underline">
+                    Live Demo
+                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm text-muted-foreground hover:text-primary"
+
+                    >
+                      GitHub
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
     </section>
   )
 }

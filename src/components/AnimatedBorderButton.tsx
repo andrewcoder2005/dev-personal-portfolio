@@ -1,13 +1,14 @@
-import { type ReactNode } from "react";
+import {type ButtonHTMLAttributes, type ReactNode } from "react";
 import { Download } from "lucide-react";
 
 type AnimatedBorderButtonProps = {
   children: ReactNode;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+;
 
-export const AnimatedBorderButton = ({ children }: AnimatedBorderButtonProps) => {
+export const AnimatedBorderButton = ({ children, className ="", ...props }: AnimatedBorderButtonProps) => {
   return (
-    <button
+    <button type="button" {...props}
       className="relative bg-transparent border border-border 
         text-foreground hover:border-primary/50 transition-all 
         duration-1000 focus:outline-none focus-visible:ring-2 

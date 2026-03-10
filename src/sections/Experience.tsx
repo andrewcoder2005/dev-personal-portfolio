@@ -1,11 +1,114 @@
 import React from 'react'
-
+const experiences = [
+  {
+    period: "Jul 2025 - Jan 2026",
+    role: "Mobile / Web Developer (Co-op Placement)",
+    company: "Morwell Innovation Centre (Federation University Australia)",
+    description:
+      "Developed backend services and custom APIs for booking workflows across web/mobile, reverse-engineered WordPress/MySQL schemas, optimized advanced SQL queries, implemented secure role-based endpoints, and delivered production-ready features in a hybrid Agile team.",
+    technologies: [
+      "React Native",
+      "WordPress",
+      "MySQL",
+      "REST API",
+      "SQL",
+      "RBAC",
+      "Git",
+      "Agile",
+    ],
+    current: false,
+  },
+  {
+    period: "Sep 2024 - Jun 2025",
+    role: "Software Engineer Intern",
+    company: "PTCARES Physiotherapy & Wellness",
+    description:
+      "Built Java backend services (Apache TomEE) to validate/transform structured form data, developed SQL extraction and validation logic, integrated Form.io and Mediastream APIs for near real-time ingestion, and improved backend/database performance for a cloud-hosted client platform.",
+    technologies: [
+      "Java",
+      "Apache TomEE",
+      "SQL",
+      "REST API",
+      "Form.io",
+      "Mediastream",
+      "Cloud",
+      "Data Validation",
+    ],
+    current: false,
+  },
+  {
+    period: "Sep 2024 - Jan 2025",
+    role: "Web Developer & UI/UX Designer (Contractor)",
+    company: "Healthy Coffee USA",
+    description:
+      "Developed and optimized a responsive eCommerce website, improved page speed and user journey, contributed to a 15% conversion uplift, and streamlined Shopify data setup for better reporting and operational visibility.",
+    technologies: [
+      "Shopify",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "UI/UX",
+      "Performance Optimization",
+      "Ecommerce",
+      "Analytics",
+    ],
+    current: false,
+  },
+];
 function Experience() {
   return (
-    <section>
-        
+    <section id='experience'
+      className='py-32 relative overflow-hidden'
+    >
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
+          <span className='text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in'>Career Journey</span>
+          <h2 className='text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground'>Experiences that {" "}<span className='text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in'>
+          </span>
+            <span className='font-serif italic font-normal text-white'>that I have accquired.</span>
+          </h2>
+          <p className='text-muted-foreground animate-fade-in animation-delay-200'>
+            A timeline of my professional growth — from a curious novice to a graduate full-stack developer
+          </p>
+        </div>
+        {/* Timeline */}
+        <div className="relative">
+          <div className="timeline-glow absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-bottom from bg-primary/70 via-primary/30 to-transparent md:-translate-x-1/2 shadow-[0_0_25px_rgba(32,178,166,0.8)]"></div>
+          {/* Experience Items */}
+          <div className="space-y-12">
+            {experiences.map((item, idx) => (
+              <div 
+                key={idx} 
+                className='relative grid md:grid-cols-2 gap-8 animate-fade-in'
+                style={{ animationDelay: `${(idx + 1) * 150}ms` }}>
+                {/* Timeline dot */}
+                <div className="absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background">
+                </div>
+                {/* Content */}
+                <div className={`pl-8 md:pl-0 ${idx % 2===0 
+                ? "md:pr-16 md:text-right"
+                : " md:col-start-2 md:pl-16"
+              }`}
+                >
+                  <div className="glass p-6 rounded-2xl border border-primary/30 hover:border-primary/50 transition-all duration-500">
+                    <span className='text-sm text-primary font-medium'>{item.period}</span>
+                    <h3 className='font-semibold mt-2'>{item.role}</h3>
+                    <p className='text-muted-foreground mt-4'>{item.company}</p>
+                    <p className='text-sm text-muted-foreground mt-4'>{item.description}</p>
+                    <div className={`flex flex-wrap gap-2 mt-4 ${idx%2==0?"md:justify-end":""} `}>{item.technologies.map((tech, techIdx) => (
+                      <span key = {techIdx} className='px-3 py-1 bg-surface text-sm rounded-full text-muted-foreground'>{tech}</span>
+                    ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   )
 }
 
-export default Experience
+export default Experience;
